@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+  --text-color: #222;
+  --bkg-color: #fff;
+  --btn-txt-color: green;
+  --btn-bg-color: red;
+}
+
+body.dark-theme{
+  --text-color: #eee;
+  --bkg-color: #252525;
+  --btn-txt-color: orange;
+  --btn-bg-color: blue;
+}

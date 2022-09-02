@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+-----------------------------------------------------------------
+
+# Services
+- provide specific functionality in an angular application
+- there maybe one or more services
+- an angular component may depend on one or more services
+- angular services may depend on another service.
+- angular provides dependancy injection (reduces complexity)

@@ -1,0 +1,111 @@
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by title"
+          [(ngModel)]="title"
+        />
+        <!-- <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchTitle()"
+          >
+            Search
+          </button>
+        </div> -->
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Tutorials List</h4>
+      <table >
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+        <tr *ngFor="let tutorial of tutorials">
+          <td>{{tutorial?.title}}</td>
+          <td>{{tutorial?.description}}</td>
+          <td><button class="btn btn-primary" (click)="selectTutorial(tutorial)" 
+            data-bs-toggle="modal" data-bs-target="#edit-tutorial">Edit</button>
+            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-tutorial"
+            (click)="selectTutorial(tutorial)">Delete</button>
+          </td>
+        </tr>
+      </table>
+
+
+
+      <!-- <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let tutorial of tutorials; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveTutorial(tutorial, i)"
+        >
+          {{ tutorial.title }}
+        </li>
+      </ul> -->
+      <!-- <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
+        Remove All
+      </button> -->
+    </div>
+    <!-- <div class="col-md-6">
+      <app-tutorial-details
+        [viewMode]="true"
+        [currentTutorial]="currentTutorial"
+      ></app-tutorial-details>
+    </div> -->
+  </div>
+
+
+    <!-- edit tutorial -->
+    <div class="modal fade" id="edit-tutorial" role="dialog" *ngIf="selectedTutorial != null">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Update Tutorial</h4>
+          </div>
+          <div class="modal-body">
+            <p>{{selectedTutorial | json}}</p>
+
+          <div class="form-group">
+            <label>Title</label>
+            <input class="form-control" [(ngModel)] = "selectedTutorial.title">
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <input class="form-control" [(ngModel)] = "selectedTutorial.description">
+          </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateTutorial()">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <!-- delete tutorial -->
+        <div class="modal fade" id="delete-tutorial" role="dialog" *ngIf="selectedTutorial != null">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Delete Tutorial</h4>
+              </div>
+              <div class="modal-body">
+                <p>Are you sure you want to delete {{selectedTutorial.title}} ?</p>
+                 <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="deleteTutorial()">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>

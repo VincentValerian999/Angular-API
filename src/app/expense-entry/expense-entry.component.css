@@ -1,0 +1,31 @@
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 9000px;
+  height: 100%;
+}
+
+.first {
+  height: 50px;
+}
+
+.second {
+  flex-grow: 1;
+}
+
+.darkMode{
+  background-color: black;
+  color: white;
+}
+.button5 {background-color: #555555; color:#e7e7e7;} /* Black */
+
+.button4 {background-color: #e7e7e7; color: black;} /* Gray */
+
+.lightMode{
+  background-color: white;
+  color: black;
+}
